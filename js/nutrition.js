@@ -17,7 +17,7 @@ const DAILY_GOALS = {
   Carbs: 260,
   Protein: 150,
   Fiber: 40,
-  Sodium: 3000,
+  Sodium: 2500,
   Potassium: 3800,
 };
 const COLORS = {
