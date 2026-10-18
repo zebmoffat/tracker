@@ -1,3 +1,8 @@
 [12:08:41 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
 [12:08:41 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
 [12:08:41 PM] Flax Seed - Cal:100, Fat:7g, Carbs:5g, Pro:4g, Fiber:4g, Na:10mg, K:130mg
+[12:12:53 PM] 2CM + 2PP - Cal:600, Fat:10g, Carbs:64g, Pro:66g, Fiber:0g, Na:680mg, K:1124mg
+[12:12:53 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
+[12:12:53 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
+[12:12:53 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
+[12:12:53 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
