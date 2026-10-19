@@ -69,28 +69,29 @@ async function init() {
   await checkTodayWeight();
 }
 
-// Distinct perceptual color families: Pink, Coral, Gold, Mint, Sky Blue, Lavender
-const HUE_BUCKETS = [340, 20, 45, 155, 205, 275];
+// Distinct perceptual color families to avoid muddy/repetitive greens
+const HUE_BUCKETS = [340, 25, 45, 160, 205, 275];
 
-function getRandomDiverseHues() {
-  // Pick two distinct families so row 1 and row 2 never clash or duplicate
-  const shuffled = [...HUE_BUCKETS].sort(() => Math.random() - 0.5);
-
-  // Add a small jitter (+/- 12 deg) around the base bucket for natural variance
-  const getJittered = (base) =>
-    (base + Math.floor(Math.random() * 25 - 12) + 360) % 360;
-  return [getJittered(shuffled[0]), getJittered(shuffled[1])];
+function getRandomHue() {
+  const base = HUE_BUCKETS[Math.floor(Math.random() * HUE_BUCKETS.length)];
+  // Add a slight jitter (+/- 10 deg) for natural variation
+  return (base + Math.floor(Math.random() * 21 - 10) + 360) % 360;
 }
 
-function generateRowGradient(baseHue) {
+function generateTwelveStepGradient() {
+  const baseHue = getRandomHue();
   const colors = [];
-  const startLightness = 93.0;
-  const step = 1.3;
 
-  for (let col = 0; col < 6; col++) {
-    const l = (startLightness - col * step).toFixed(2);
+  // Match the distance of #defffe from white (~94.5% lightness)
+  const startLightness = 94.5;
+  // Subtle delta per step across all 12 boxes (total span of ~7.7% lightness)
+  const step = 0.7;
+
+  for (let i = 0; i < 12; i++) {
+    const l = (startLightness - i * step).toFixed(2);
     colors.push(`hsl(${baseHue}, 85%, ${l}%)`);
   }
+
   return colors;
 }
 
@@ -98,11 +99,8 @@ async function renderPastDays() {
   const container = document.getElementById("weight-history");
   container.innerHTML = "";
 
-  // Generate two independent gradients: one for Row 1, one for Row 2
-  const [hue1, hue2] = getRandomDiverseHues();
-  const row1Colors = generateRowGradient(hue1);
-  const row2Colors = generateRowGradient(hue2);
-  const allCardColors = [...row1Colors, ...row2Colors];
+  // One continuous 12-card gradient
+  const allCardColors = generateTwelveStepGradient();
 
   const pastDates = [];
   for (let i = 12; i >= 1; i--) {
@@ -111,7 +109,7 @@ async function renderPastDays() {
     pastDates.push(d);
   }
 
-  // Pre-render placeholders with the computed gradient backgrounds
+  // Pre-render placeholders with the single progressive gradient
   pastDates.forEach((d, idx) => {
     const bgColor = allCardColors[idx];
     container.innerHTML += `
