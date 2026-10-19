@@ -7,3 +7,7 @@
 [12:12:53 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [12:12:53 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
 [12:20:39 PM] Salt (1/4 Tsp) - Cal:0, Fat:0g, Carbs:0g, Pro:0g, Fiber:0g, Na:590mg, K:0mg
+[5:54:18 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
+[5:54:18 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
+[5:54:18 PM] Flax Seed - Cal:100, Fat:7g, Carbs:5g, Pro:4g, Fiber:4g, Na:10mg, K:130mg
+[5:54:18 PM] Raw Salad Mix (1 Cup) - Cal:10, Fat:0g, Carbs:2g, Pro:0g, Fiber:1g, Na:14mg, K:120mg
