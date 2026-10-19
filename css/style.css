@@ -242,21 +242,19 @@ select:disabled {
 }
 /* --- Weight Section Styles --- */
 
-/* Row of 6 squares matching circle size (100px) that never wraps */
+/* 2x6 Grid: two rows of 6 squares that never wrap/collapse, only shrink */
 .weight-history-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
   max-width: 660px;
-  margin: 0 auto 35px auto;
+  margin: 0 auto 30px auto;
   padding: 0 10px;
   box-sizing: border-box;
 }
 
 .weight-history-card {
-  width: 100px;
+  width: 100%;
   aspect-ratio: 1 / 1;
   background: #fff;
   border: 1px solid #ddd;
@@ -265,8 +263,7 @@ select:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1 1 0;
-  min-width: 0; /* Prevents overflow; allows shrinking on small phones */
+  min-width: 0; /* Prevents overflow; allows shrinking on mobile */
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
@@ -276,13 +273,13 @@ select:disabled {
 }
 
 .weight-label {
-  font-size: clamp(10px, 2.5vw, 12px);
+  font-size: clamp(9px, 2.2vw, 12px);
   color: #777;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .weight-val {
-  font-size: clamp(12px, 3.2vw, 16px);
+  font-size: clamp(11px, 2.8vw, 15px);
   font-weight: bold;
   color: #333;
 }

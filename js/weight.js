@@ -74,12 +74,14 @@ async function renderPastDays() {
   container.innerHTML = "";
 
   const pastDates = [];
-  for (let i = 6; i >= 1; i--) {
+  // 12 days total: index 0 is 12 days ago, index 11 is yesterday
+  for (let i = 12; i >= 1; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     pastDates.push(d);
   }
 
+  // Pre-render placeholders to maintain the 2x6 structure immediately
   pastDates.forEach((d, idx) => {
     container.innerHTML += `
       <div class="weight-history-card" id="history-box-${idx}">
@@ -89,9 +91,8 @@ async function renderPastDays() {
     `;
   });
 
-  const results = await Promise.all(
-    pastDates.map((d) => fetchWeightForDate(d)),
-  );
+  // Fetch all 12 days concurrently
+  const results = await Promise.all(pastDates.map((d) => fetchWeightForDate(d)));
 
   results.forEach((res, idx) => {
     const box = document.getElementById(`history-box-${idx}`);
