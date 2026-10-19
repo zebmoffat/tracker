@@ -262,7 +262,7 @@ select:disabled {
   width: 100%;
   aspect-ratio: 1 / 1;
   background: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid transparent; /* Replaced #ddd */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -271,10 +271,6 @@ select:disabled {
   min-width: 0;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-}
-
-.weight-history-card.filled {
-  border-color: #ccc;
 }
 
 .weight-label {
@@ -301,7 +297,7 @@ select:disabled {
   width: 160px;
   height: 160px;
   background: #fff;
-  border: 2px solid #ddd;
+  border: 2px solid transparent; /* Replaced #ddd */
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -313,10 +309,6 @@ select:disabled {
   transition:
     background-color 0.25s,
     border-color 0.25s;
-}
-
-.weight-today-square.submitted {
-  border-color: #ccc;
 }
 
 .weight-today-square.submitted .weight-val {

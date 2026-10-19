@@ -105,10 +105,11 @@ async function init() {
   const pastColors = gradientColors.slice(0, 12);
   todayGradientColor = gradientColors[12];
 
-  // 2. Set Today's square initially to the 13th color while fetching
+  // 2. Set Today's square initially to the 13th color and border while fetching
   const todaySquare = document.getElementById("today-square");
   if (todaySquare) {
     todaySquare.style.backgroundColor = todayGradientColor;
+    todaySquare.style.borderColor = todayGradientColor;
   }
 
   // 3. Render 12 past days
@@ -130,15 +131,18 @@ async function renderPastDays(colors) {
   }
 
   pastDates.forEach((d, idx) => {
+    const color = colors[idx];
     container.innerHTML += `
-      <div class="weight-history-card" id="history-box-${idx}" style="background-color: ${colors[idx]};">
+      <div class="weight-history-card" id="history-box-${idx}" style="background-color: ${color}; border-color: ${color};">
         <span class="weight-label">${formatDateShort(d)}</span>
         <strong class="weight-val">...</strong>
       </div>
     `;
   });
 
-  const results = await Promise.all(pastDates.map((d) => fetchWeightForDate(d)));
+  const results = await Promise.all(
+    pastDates.map((d) => fetchWeightForDate(d)),
+  );
 
   results.forEach((res, idx) => {
     const box = document.getElementById(`history-box-${idx}`);
@@ -149,7 +153,7 @@ async function renderPastDays(colors) {
       valEl.innerText = formatWeight(res.value);
       box.classList.add("filled");
     } else {
-      valEl.innerText = "...";
+      valEl.innerText = "";
     }
   });
 }
@@ -170,13 +174,15 @@ async function checkTodayWeight() {
     displayVal.style.display = "block";
     inputWrap.style.display = "none";
 
-    // Set to 13th gradient color
+    // Set both to the 13th gradient color
     todaySquare.style.backgroundColor = todayGradientColor;
+    todaySquare.style.borderColor = todayGradientColor;
     todaySquare.classList.add("submitted");
     if (submitBtn) submitBtn.style.display = "none";
   } else {
-    // No data found: switch to white for active entry
+    // Unsubmitted: both background and border switch to pure white
     todaySquare.style.backgroundColor = "#ffffff";
+    todaySquare.style.borderColor = "#ffffff";
     todaySquare.classList.remove("submitted");
     displayVal.style.display = "none";
     inputWrap.style.display = "block";
