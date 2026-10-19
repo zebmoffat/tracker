@@ -69,22 +69,46 @@ async function init() {
   await checkTodayWeight();
 }
 
+// --- RANDOM PASTEL GRADIENT GENERATOR ---
+function generateRowGradient() {
+  // Pick an entirely random hue (0 to 359 degrees)
+  const randomHue = Math.floor(Math.random() * 360);
+  const colors = [];
+
+  // Match the distance of #defffe from white (~94% lightness, 90% saturation)
+  const startLightness = 94.0;
+  const step = 1.2; // Fixed spacing between adjacent squares
+
+  for (let col = 0; col < 6; col++) {
+    const l = (startLightness - col * step).toFixed(2);
+    // HSL ensures every hue is uniformly separated and equally bright
+    colors.push(`hsl(${randomHue}, 90%, ${l}%)`);
+  }
+
+  return colors;
+}
+
 async function renderPastDays() {
   const container = document.getElementById("weight-history");
   container.innerHTML = "";
 
+  // Generate two independent gradients: one for Row 1, one for Row 2
+  const row1Colors = generateRowGradient();
+  const row2Colors = generateRowGradient();
+  const allCardColors = [...row1Colors, ...row2Colors];
+
   const pastDates = [];
-  // 12 days total: index 0 is 12 days ago, index 11 is yesterday
   for (let i = 12; i >= 1; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     pastDates.push(d);
   }
 
-  // Pre-render placeholders to maintain the 2x6 structure immediately
+  // Pre-render placeholders with the computed gradient backgrounds
   pastDates.forEach((d, idx) => {
+    const bgColor = allCardColors[idx];
     container.innerHTML += `
-      <div class="weight-history-card" id="history-box-${idx}">
+      <div class="weight-history-card" id="history-box-${idx}" style="background-color: ${bgColor};">
         <span class="weight-label">${formatDateShort(d)}</span>
         <strong class="weight-val">...</strong>
       </div>
@@ -103,7 +127,7 @@ async function renderPastDays() {
       valEl.innerText = formatWeight(res.value);
       box.classList.add("filled");
     } else {
-      valEl.innerText = "";
+      valEl.innerText = "...";
     }
   });
 }
