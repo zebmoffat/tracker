@@ -217,12 +217,16 @@ select:disabled {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 630px; /* (4 * 150px) + (3 * 10px gap) */
+  margin: 0 auto 20px auto;
+  box-sizing: border-box;
 }
 
 .nav-btn {
   flex: 1;
-  max-width: 150px;
+  width: 100%;
+  max-width: none; /* Let flex distribute width equally within the 630px container */
   padding: 10px;
   font-size: 16px;
   background: #e0e0e0;
@@ -236,7 +240,7 @@ select:disabled {
 }
 
 .nav-btn.active {
-  background: #34495e; /* Matches the Calories circle color */
+  background: #34495e;
   color: white;
   font-weight: bold;
 }
@@ -247,9 +251,10 @@ select:disabled {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 10px;
-  max-width: 660px;
+  width: 100%;
+  max-width: 630px; /* Matches .app-nav exactly */
   margin: 0 auto 30px auto;
-  padding: 0 10px;
+  padding: 0; /* Removed horizontal padding so edges stay flush with nav buttons */
   box-sizing: border-box;
 }
 
@@ -263,7 +268,7 @@ select:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 0; /* Prevents overflow; allows shrinking on mobile */
+  min-width: 0;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
