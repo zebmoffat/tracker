@@ -2,6 +2,33 @@
 const GITHUB_USER = "zebmoffat";
 const GITHUB_REPO = "tracker";
 
+// Distinct perceptual color families
+const HUE_BUCKETS = [340, 25, 45, 160, 205, 275];
+
+function getRandomHue() {
+  const base = HUE_BUCKETS[Math.floor(Math.random() * HUE_BUCKETS.length)];
+  return (base + Math.floor(Math.random() * 21 - 10) + 360) % 360;
+}
+
+// Generate 13 evenly spaced progressive steps
+function generateThirteenStepGradient() {
+  const baseHue = getRandomHue();
+  const colors = [];
+
+  const startLightness = 94.5;
+  const step = 0.65; // Balanced delta across 13 squares
+
+  for (let i = 0; i < 13; i++) {
+    const l = (startLightness - i * step).toFixed(2);
+    colors.push(`hsl(${baseHue}, 85%, ${l}%)`);
+  }
+
+  return colors;
+}
+
+let todayGradientColor = "#e8e8e8"; // Fallback until initialized
+let todayFileSha = null;
+
 function formatPath(dateObj) {
   const year = dateObj.getFullYear();
   const month = String(dateObj.getMonth() + 1).padStart(2, "0");
@@ -13,10 +40,20 @@ function formatDateShort(dateObj) {
   return `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
 }
 
-// Helper to guarantee 1 decimal place (e.g. 150 -> "150.0", 151.4 -> "151.4")
 function formatWeight(val) {
   const num = parseFloat(val);
   return isNaN(num) ? "" : num.toFixed(1);
+}
+
+function validateWeightInput(input) {
+  let val = input.value;
+  val = val.replace(/[^0-9.]/g, "");
+  const parts = val.split(".");
+  if (parts.length > 2) {
+    val = parts[0] + "." + parts.slice(1).join("");
+  }
+  const match = val.match(/^(\d{0,3})(\.?\d{0,1})/);
+  input.value = match ? match[1] + match[2] : "";
 }
 
 async function fetchWeightForDate(dateObj) {
@@ -53,8 +90,6 @@ async function fetchWeightForDate(dateObj) {
   return { value: null, sha: null, exists: false };
 }
 
-let todayFileSha = null;
-
 async function init() {
   const token = localStorage.getItem("gh_pat");
   const controls = document.getElementById("weight-controls");
@@ -65,42 +100,27 @@ async function init() {
     if (statusText) statusText.style.display = "none";
   }
 
-  await renderPastDays();
+  // 1. Generate 13 gradient colors
+  const gradientColors = generateThirteenStepGradient();
+  const pastColors = gradientColors.slice(0, 12);
+  todayGradientColor = gradientColors[12];
+
+  // 2. Set Today's square initially to the 13th color while fetching
+  const todaySquare = document.getElementById("today-square");
+  if (todaySquare) {
+    todaySquare.style.backgroundColor = todayGradientColor;
+  }
+
+  // 3. Render 12 past days
+  await renderPastDays(pastColors);
+
+  // 4. Check today's submission status
   await checkTodayWeight();
 }
 
-// Distinct perceptual color families to avoid muddy/repetitive greens
-const HUE_BUCKETS = [340, 25, 45, 160, 205, 275];
-
-function getRandomHue() {
-  const base = HUE_BUCKETS[Math.floor(Math.random() * HUE_BUCKETS.length)];
-  // Add a slight jitter (+/- 10 deg) for natural variation
-  return (base + Math.floor(Math.random() * 21 - 10) + 360) % 360;
-}
-
-function generateTwelveStepGradient() {
-  const baseHue = getRandomHue();
-  const colors = [];
-
-  // Match the distance of #defffe from white (~94.5% lightness)
-  const startLightness = 94.5;
-  // Subtle delta per step across all 12 boxes (total span of ~7.7% lightness)
-  const step = 0.7;
-
-  for (let i = 0; i < 12; i++) {
-    const l = (startLightness - i * step).toFixed(2);
-    colors.push(`hsl(${baseHue}, 85%, ${l}%)`);
-  }
-
-  return colors;
-}
-
-async function renderPastDays() {
+async function renderPastDays(colors) {
   const container = document.getElementById("weight-history");
   container.innerHTML = "";
-
-  // One continuous 12-card gradient
-  const allCardColors = generateTwelveStepGradient();
 
   const pastDates = [];
   for (let i = 12; i >= 1; i--) {
@@ -109,21 +129,16 @@ async function renderPastDays() {
     pastDates.push(d);
   }
 
-  // Pre-render placeholders with the single progressive gradient
   pastDates.forEach((d, idx) => {
-    const bgColor = allCardColors[idx];
     container.innerHTML += `
-      <div class="weight-history-card" id="history-box-${idx}" style="background-color: ${bgColor};">
+      <div class="weight-history-card" id="history-box-${idx}" style="background-color: ${colors[idx]};">
         <span class="weight-label">${formatDateShort(d)}</span>
         <strong class="weight-val">...</strong>
       </div>
     `;
   });
 
-  // Fetch all 12 days concurrently
-  const results = await Promise.all(
-    pastDates.map((d) => fetchWeightForDate(d)),
-  );
+  const results = await Promise.all(pastDates.map((d) => fetchWeightForDate(d)));
 
   results.forEach((res, idx) => {
     const box = document.getElementById(`history-box-${idx}`);
@@ -155,9 +170,13 @@ async function checkTodayWeight() {
     displayVal.style.display = "block";
     inputWrap.style.display = "none";
 
+    // Set to 13th gradient color
+    todaySquare.style.backgroundColor = todayGradientColor;
     todaySquare.classList.add("submitted");
     if (submitBtn) submitBtn.style.display = "none";
   } else {
+    // No data found: switch to white for active entry
+    todaySquare.style.backgroundColor = "#ffffff";
     todaySquare.classList.remove("submitted");
     displayVal.style.display = "none";
     inputWrap.style.display = "block";
@@ -165,39 +184,17 @@ async function checkTodayWeight() {
   }
 }
 
-// Restricts typed values in real-time to:
-// Up to 3 digits before a period, and at most 1 digit after a period.
-function validateWeightInput(input) {
-  let val = input.value;
-
-  // Allow only digits and at most one dot
-  val = val.replace(/[^0-9.]/g, "");
-
-  // Prevent multiple dots
-  const parts = val.split(".");
-  if (parts.length > 2) {
-    val = parts[0] + "." + parts.slice(1).join("");
-  }
-
-  // Restrict to max 3 digits before the dot and 1 digit after
-  const match = val.match(/^(\d{0,3})(\.?\d{0,1})/);
-  input.value = match ? match[1] + match[2] : "";
-}
-
 async function submitWeight() {
   const token = localStorage.getItem("gh_pat");
   const input = document.getElementById("weight-input");
   const rawVal = input.value.trim();
 
-  // Validate complete entry: 2 or 3 digits, optional period with 1 digit
   if (!/^\d{2,3}(\.\d)?$/.test(rawVal)) {
     setStatus("Please enter a valid weight (e.g. 98, 150, or 151.4).");
     return;
   }
 
-  // Always enforce 1 decimal place before sending (98 -> "98.0")
   const formattedVal = formatWeight(rawVal);
-
   const btn = document.getElementById("weight-submit-btn");
   btn.disabled = true;
   setStatus("Syncing weight to GitHub...");

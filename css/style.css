@@ -315,9 +315,7 @@ select:disabled {
     border-color 0.25s;
 }
 
-/* Grayed out after submission */
 .weight-today-square.submitted {
-  background: #e8e8e8;
   border-color: #ccc;
 }
 
