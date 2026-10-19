@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness</title>
+    <title>Weight</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -18,6 +18,36 @@
       <button class="nav-btn" onclick="window.location.href = 'visuals.html'">
         Visuals
       </button>
+    </div>
+
+    <!-- 6 previous days row -->
+    <div class="weight-history-row" id="weight-history">
+      <!-- 6 squares injected via JS -->
+    </div>
+
+    <!-- Today's main square and controls -->
+    <div class="weight-today-container">
+      <div class="weight-today-square" id="today-square">
+        <span class="weight-label" id="today-label">Today</span>
+        <div id="today-display-val" class="weight-val">--</div>
+        
+        <div id="today-input-wrap">
+          <input
+            type="number"
+            step="0.1"
+            id="weight-input"
+            placeholder="0.0"
+            inputmode="decimal"
+          />
+        </div>
+      </div>
+
+      <div class="controls weight-controls" id="weight-controls">
+        <button class="btn-submit" id="weight-submit-btn" onclick="submitWeight()">
+          Log Weight
+        </button>
+        <div id="status"></div>
+      </div>
     </div>
 
     <script src="../js/weight.js"></script>
