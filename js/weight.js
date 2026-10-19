@@ -69,22 +69,28 @@ async function init() {
   await checkTodayWeight();
 }
 
-// --- RANDOM PASTEL GRADIENT GENERATOR ---
-function generateRowGradient() {
-  // Pick an entirely random hue (0 to 359 degrees)
-  const randomHue = Math.floor(Math.random() * 360);
-  const colors = [];
+// Distinct perceptual color families: Pink, Coral, Gold, Mint, Sky Blue, Lavender
+const HUE_BUCKETS = [340, 20, 45, 155, 205, 275];
 
-  // Match the distance of #defffe from white (~94% lightness, 90% saturation)
-  const startLightness = 94.0;
-  const step = 1.2; // Fixed spacing between adjacent squares
+function getRandomDiverseHues() {
+  // Pick two distinct families so row 1 and row 2 never clash or duplicate
+  const shuffled = [...HUE_BUCKETS].sort(() => Math.random() - 0.5);
+
+  // Add a small jitter (+/- 12 deg) around the base bucket for natural variance
+  const getJittered = (base) =>
+    (base + Math.floor(Math.random() * 25 - 12) + 360) % 360;
+  return [getJittered(shuffled[0]), getJittered(shuffled[1])];
+}
+
+function generateRowGradient(baseHue) {
+  const colors = [];
+  const startLightness = 93.0;
+  const step = 1.3;
 
   for (let col = 0; col < 6; col++) {
     const l = (startLightness - col * step).toFixed(2);
-    // HSL ensures every hue is uniformly separated and equally bright
-    colors.push(`hsl(${randomHue}, 90%, ${l}%)`);
+    colors.push(`hsl(${baseHue}, 85%, ${l}%)`);
   }
-
   return colors;
 }
 
@@ -93,8 +99,9 @@ async function renderPastDays() {
   container.innerHTML = "";
 
   // Generate two independent gradients: one for Row 1, one for Row 2
-  const row1Colors = generateRowGradient();
-  const row2Colors = generateRowGradient();
+  const [hue1, hue2] = getRandomDiverseHues();
+  const row1Colors = generateRowGradient(hue1);
+  const row2Colors = generateRowGradient(hue2);
   const allCardColors = [...row1Colors, ...row2Colors];
 
   const pastDates = [];
@@ -116,7 +123,9 @@ async function renderPastDays() {
   });
 
   // Fetch all 12 days concurrently
-  const results = await Promise.all(pastDates.map((d) => fetchWeightForDate(d)));
+  const results = await Promise.all(
+    pastDates.map((d) => fetchWeightForDate(d)),
+  );
 
   results.forEach((res, idx) => {
     const box = document.getElementById(`history-box-${idx}`);
