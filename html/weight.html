@@ -27,11 +27,11 @@
 
     <!-- Today's main square and controls -->
     <div class="weight-today-container">
-      <div class="weight-today-square" id="today-square">
+      <div class="weight-today-square submitted" id="today-square">
         <span class="weight-label" id="today-label">Today</span>
-        <div id="today-display-val" class="weight-val">--</div>
-        
-        <div id="today-input-wrap">
+        <div id="today-display-val" class="weight-val">...</div>
+
+        <div id="today-input-wrap" style="display: none">
           <input
             type="number"
             step="0.1"
@@ -43,7 +43,12 @@
       </div>
 
       <div class="controls weight-controls" id="weight-controls">
-        <button class="btn-submit" id="weight-submit-btn" onclick="submitWeight()">
+        <button
+          class="btn-submit"
+          id="weight-submit-btn"
+          onclick="submitWeight()"
+          style="display: none"
+        >
           Log Weight
         </button>
         <div id="status"></div>

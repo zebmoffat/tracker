@@ -85,7 +85,9 @@ async function renderPastDays() {
   });
 
   // Fetch past 6 days in parallel
-  const results = await Promise.all(pastDates.map((d) => fetchWeightForDate(d)));
+  const results = await Promise.all(
+    pastDates.map((d) => fetchWeightForDate(d)),
+  );
 
   results.forEach((res, idx) => {
     const box = document.getElementById(`history-box-${idx}`);
@@ -123,11 +125,11 @@ async function checkTodayWeight() {
     displayVal.style.display = "block";
     inputWrap.style.display = "none";
 
-    // Grayed out to show it's finalized and hide button
+    // Keep grayed out and keep submit button hidden
     todaySquare.classList.add("submitted");
     if (submitBtn) submitBtn.style.display = "none";
   } else {
-    // Unsubmitted state: white background and active inputs
+    // No data found: transition square to white and show input + submit button
     todaySquare.classList.remove("submitted");
     displayVal.style.display = "none";
     inputWrap.style.display = "block";
