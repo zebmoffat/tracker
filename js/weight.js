@@ -153,7 +153,7 @@ async function renderPastDays(colors) {
       valEl.innerText = formatWeight(res.value);
       box.classList.add("filled");
     } else {
-      valEl.innerText = "";
+      valEl.innerText = "...";
     }
   });
 }
