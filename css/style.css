@@ -323,8 +323,19 @@ select:disabled {
   font-size: 26px;
 }
 
+/* Remove default spinner arrows from number inputs across all browsers */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 #today-input-wrap input {
-  width: 110px;
+  width: 120px;
   padding: 8px;
   font-size: 22px;
   font-weight: bold;
@@ -333,6 +344,7 @@ select:disabled {
   border: 1px solid #ccc;
   outline: none;
   background: #fafafa;
+  box-sizing: border-box;
 }
 
 .weight-controls {

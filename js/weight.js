@@ -13,6 +13,12 @@ function formatDateShort(dateObj) {
   return `${dateObj.getMonth() + 1}/${dateObj.getDate()}`;
 }
 
+// Helper to guarantee 1 decimal place (e.g. 150 -> "150.0", 151.4 -> "151.4")
+function formatWeight(val) {
+  const num = parseFloat(val);
+  return isNaN(num) ? "" : num.toFixed(1);
+}
+
 async function fetchWeightForDate(dateObj) {
   const token = localStorage.getItem("gh_pat");
   const path = formatPath(dateObj);
@@ -74,7 +80,6 @@ async function renderPastDays() {
     pastDates.push(d);
   }
 
-  // Generate placeholder squares first to prevent layout shift
   pastDates.forEach((d, idx) => {
     container.innerHTML += `
       <div class="weight-history-card" id="history-box-${idx}">
@@ -84,7 +89,6 @@ async function renderPastDays() {
     `;
   });
 
-  // Fetch past 6 days in parallel
   const results = await Promise.all(
     pastDates.map((d) => fetchWeightForDate(d)),
   );
@@ -95,10 +99,7 @@ async function renderPastDays() {
 
     const valEl = box.querySelector(".weight-val");
     if (res.exists && res.value !== null) {
-      const formatted = Number.isInteger(Number(res.value))
-        ? res.value
-        : Number(res.value).toFixed(1);
-      valEl.innerText = formatted;
+      valEl.innerText = formatWeight(res.value);
       box.classList.add("filled");
     } else {
       valEl.innerText = "";
@@ -117,19 +118,14 @@ async function checkTodayWeight() {
 
   if (res.exists && res.value !== null) {
     todayFileSha = res.sha;
-    const formatted = Number.isInteger(Number(res.value))
-      ? res.value
-      : Number(res.value).toFixed(1);
 
-    displayVal.innerText = formatted;
+    displayVal.innerText = formatWeight(res.value);
     displayVal.style.display = "block";
     inputWrap.style.display = "none";
 
-    // Keep grayed out and keep submit button hidden
     todaySquare.classList.add("submitted");
     if (submitBtn) submitBtn.style.display = "none";
   } else {
-    // No data found: transition square to white and show input + submit button
     todaySquare.classList.remove("submitted");
     displayVal.style.display = "none";
     inputWrap.style.display = "block";
@@ -137,16 +133,38 @@ async function checkTodayWeight() {
   }
 }
 
+// Restricts typed values in real-time to:
+// Up to 3 digits before a period, and at most 1 digit after a period.
+function validateWeightInput(input) {
+  let val = input.value;
+
+  // Allow only digits and at most one dot
+  val = val.replace(/[^0-9.]/g, "");
+
+  // Prevent multiple dots
+  const parts = val.split(".");
+  if (parts.length > 2) {
+    val = parts[0] + "." + parts.slice(1).join("");
+  }
+
+  // Restrict to max 3 digits before the dot and 1 digit after
+  const match = val.match(/^(\d{0,3})(\.?\d{0,1})/);
+  input.value = match ? match[1] + match[2] : "";
+}
+
 async function submitWeight() {
   const token = localStorage.getItem("gh_pat");
   const input = document.getElementById("weight-input");
   const rawVal = input.value.trim();
 
-  // Validate numeric input (allows integer or 1 decimal place)
-  if (!rawVal || isNaN(rawVal) || !/^\d+(\.\d{1})?$/.test(rawVal)) {
-    setStatus("Please enter a valid weight (e.g. 150, 151.4).");
+  // Validate complete entry: 2 or 3 digits, optional period with 1 digit
+  if (!/^\d{2,3}(\.\d)?$/.test(rawVal)) {
+    setStatus("Please enter a valid weight (e.g. 98, 150, or 151.4).");
     return;
   }
+
+  // Always enforce 1 decimal place before sending (98 -> "98.0")
+  const formattedVal = formatWeight(rawVal);
 
   const btn = document.getElementById("weight-submit-btn");
   btn.disabled = true;
@@ -157,9 +175,9 @@ async function submitWeight() {
   const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${path}`;
 
   try {
-    const encodedContent = btoa(unescape(encodeURIComponent(rawVal)));
+    const encodedContent = btoa(unescape(encodeURIComponent(formattedVal)));
     const body = {
-      message: `Log weight: ${rawVal}`,
+      message: `Log weight: ${formattedVal}`,
       content: encodedContent,
     };
     if (todayFileSha) {

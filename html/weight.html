@@ -33,11 +33,13 @@
 
         <div id="today-input-wrap" style="display: none">
           <input
-            type="number"
-            step="0.1"
+            type="text"
             id="weight-input"
             placeholder="0.0"
             inputmode="decimal"
+            maxlength="5"
+            autocomplete="off"
+            oninput="validateWeightInput(this)"
           />
         </div>
       </div>
