@@ -9,3 +9,6 @@
 [5:02:35 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
 [5:08:31 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
 [7:28:58 PM] Chicken (Custom) - Cal:350, Fat:0g, Carbs:0g, Pro:65g, Fiber:0g, Na:0mg, K:0mg
+[7:58:06 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
+[7:58:06 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
+[7:58:06 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
