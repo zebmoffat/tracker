@@ -11,3 +11,4 @@
 [5:06:22 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [5:06:22 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [5:06:22 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
+[5:06:42 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
