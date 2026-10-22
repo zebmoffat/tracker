@@ -1,0 +1,17 @@
+[10:01:20 AM] cookie (Custom) - Cal:400, Fat:0g, Carbs:0g, Pro:0g, Fiber:0g, Na:0mg, K:0mg
+[10:20:32 AM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
+[10:20:32 AM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
+[10:20:32 AM] Flax Seed - Cal:100, Fat:7g, Carbs:5g, Pro:4g, Fiber:4g, Na:10mg, K:130mg
+[10:20:32 AM] Raw Salad Mix (1 Cup) - Cal:10, Fat:0g, Carbs:2g, Pro:0g, Fiber:1g, Na:14mg, K:120mg
+[5:02:35 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
+[5:02:35 PM] Milk (Skim) - Cal:90, Fat:0g, Carbs:14g, Pro:9g, Fiber:0g, Na:140mg, K:441mg
+[5:02:35 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
+[5:02:35 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
+[5:08:31 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
+[7:28:58 PM] Chicken (Custom) - Cal:350, Fat:0g, Carbs:0g, Pro:65g, Fiber:0g, Na:0mg, K:0mg
+[7:58:06 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
+[7:58:06 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
+[7:58:06 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
+[9:13:55 PM] Raw Salad Mix (1 Cup) - Cal:10, Fat:0g, Carbs:2g, Pro:0g, Fiber:1g, Na:14mg, K:120mg
+[9:13:55 PM] Flax Seed - Cal:100, Fat:7g, Carbs:5g, Pro:4g, Fiber:4g, Na:10mg, K:130mg
+[9:13:55 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
