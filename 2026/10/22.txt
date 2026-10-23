@@ -9,3 +9,4 @@
 [4:11:43 PM] Salt (1/4 Tsp) - Cal:0, Fat:0g, Carbs:0g, Pro:0g, Fiber:0g, Na:590mg, K:0mg
 [7:34:10 PM] Milk (Skim) - Cal:90, Fat:0g, Carbs:14g, Pro:9g, Fiber:0g, Na:140mg, K:441mg
 [7:34:10 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
+[9:14:57 PM] b (Custom) - Cal:200, Fat:0g, Carbs:0g, Pro:0g, Fiber:0g, Na:0mg, K:0mg
