@@ -7,3 +7,7 @@
 [7:39:36 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [7:39:36 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
 [7:39:46 PM] Salt (1/4 Tsp) - Cal:0, Fat:0g, Carbs:0g, Pro:0g, Fiber:0g, Na:590mg, K:0mg
+[8:39:37 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
+[8:39:37 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
+[8:39:37 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
+[8:39:37 PM] Milk (Skim) - Cal:90, Fat:0g, Carbs:14g, Pro:9g, Fiber:0g, Na:140mg, K:441mg
