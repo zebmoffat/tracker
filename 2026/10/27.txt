@@ -2,3 +2,4 @@
 [12:15:54 PM] Ritz C&C - Cal:170, Fat:12g, Carbs:10g, Pro:7g, Fiber:0g, Na:300mg, K:0mg
 [12:15:54 PM] Bagel - Cal:230, Fat:2g, Carbs:45g, Pro:9g, Fiber:2g, Na:350mg, K:80mg
 [12:15:54 PM] Chicken (Custom) - Cal:250, Fat:0g, Carbs:0g, Pro:50g, Fiber:0g, Na:0mg, K:0mg
+[1:27:26 PM] rb (Custom) - Cal:170, Fat:0g, Carbs:43g, Pro:0g, Fiber:0g, Na:0mg, K:0mg
