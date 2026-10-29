@@ -3,3 +3,6 @@
 [12:20:57 PM] CBB - Cal:90, Fat:0g, Carbs:22g, Pro:1g, Fiber:5g, Na:0mg, K:210mg
 [12:21:14 PM] 2CM + 2PP - Cal:600, Fat:10g, Carbs:64g, Pro:66g, Fiber:0g, Na:680mg, K:1124mg
 [12:21:14 PM] Peanut Butter - Cal:180, Fat:15g, Carbs:7g, Pro:7g, Fiber:2g, Na:150mg, K:205mg
+[12:52:33 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
+[12:52:33 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
+[12:52:33 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
