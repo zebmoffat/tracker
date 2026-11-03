@@ -5,3 +5,6 @@
 [6:37:55 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [6:37:55 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [6:37:55 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
+[10:01:18 PM] Flax Seed - Cal:100, Fat:7g, Carbs:5g, Pro:4g, Fiber:4g, Na:10mg, K:130mg
+[10:01:18 PM] Blueberries - Cal:80, Fat:0g, Carbs:19g, Pro:1g, Fiber:4g, Na:90mg, K:0mg
+[10:01:18 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
