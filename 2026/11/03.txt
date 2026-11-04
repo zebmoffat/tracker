@@ -14,3 +14,5 @@
 [9:43:28 PM] Raw Salad Mix (1 Cup) - Cal:10, Fat:0g, Carbs:2g, Pro:0g, Fiber:1g, Na:14mg, K:120mg
 [9:43:28 PM] RBB - Cal:50, Fat:0.5g, Carbs:11g, Pro:1g, Fiber:4g, Na:0mg, K:100mg
 [9:45:26 PM] jerkey (Custom) - Cal:240, Fat:3g, Carbs:24g, Pro:10g, Fiber:0g, Na:0mg, K:0mg
+[10:54:44 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
+[10:54:44 PM] Chocolate Milk - Cal:170, Fat:3g, Carbs:28g, Pro:8g, Fiber:0g, Na:200mg, K:352mg
