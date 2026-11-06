@@ -7,3 +7,4 @@
 [5:17:37 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [5:17:37 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
 [5:17:37 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
+[6:05:54 PM] Orange Creamsicle Milk - Cal:180, Fat:5g, Carbs:28g, Pro:8g, Fiber:0g, Na:100mg, K:330mg
