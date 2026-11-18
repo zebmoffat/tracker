@@ -5,3 +5,6 @@
 [7:17:31 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
 [7:17:31 PM] Shamrock CM - Cal:130, Fat:2g, Carbs:22g, Pro:8g, Fiber:0g, Na:170mg, K:380mg
 [7:17:31 PM] Shamrock CM - Cal:130, Fat:2g, Carbs:22g, Pro:8g, Fiber:0g, Na:170mg, K:380mg
+[7:17:50 PM] Flax Seed - Cal:100, Fat:7g, Carbs:5g, Pro:4g, Fiber:4g, Na:10mg, K:130mg
+[7:17:50 PM] Blueberries - Cal:80, Fat:0g, Carbs:19g, Pro:1g, Fiber:4g, Na:90mg, K:0mg
+[7:17:50 PM] Blueberries - Cal:80, Fat:0g, Carbs:19g, Pro:1g, Fiber:4g, Na:90mg, K:0mg
