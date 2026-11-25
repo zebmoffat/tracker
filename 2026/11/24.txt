@@ -8,3 +8,6 @@
 [9:07:40 PM] Protein Powder - Cal:130, Fat:2g, Carbs:4g, Pro:25g, Fiber:0g, Na:140mg, K:210mg
 [9:07:40 PM] Almond Butter - Cal:190, Fat:17g, Carbs:7g, Pro:7g, Fiber:3g, Na:0mg, K:192mg
 [9:07:40 PM] Almond Butter - Cal:190, Fat:17g, Carbs:7g, Pro:7g, Fiber:3g, Na:0mg, K:192mg
+[9:08:00 PM] Rice Krispy - Cal:90, Fat:2g, Carbs:17g, Pro:0g, Fiber:0g, Na:105mg, K:0mg
+[9:08:00 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
+[9:08:00 PM] Fruit Snacks - Cal:70, Fat:0g, Carbs:17g, Pro:1g, Fiber:0g, Na:0mg, K:0mg
